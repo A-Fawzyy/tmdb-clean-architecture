@@ -28,3 +28,8 @@ migrate_working_dir/
 .dart_tool/
 .packages
 build/
+
+# Ignored files
+untranslated_localizations.txt
+ios/Podfile.lock
+generated/
