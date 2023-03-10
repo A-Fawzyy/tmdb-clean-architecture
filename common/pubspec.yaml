@@ -1,7 +1,6 @@
 name: common
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
 
 environment:
   sdk: '>=2.19.4 <3.0.0'
@@ -10,6 +9,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  # Localization
+  intl: ^0.17.0
+  # Localization
 
 dev_dependencies:
   flutter_test:
@@ -17,7 +21,14 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   lint: ^2.0.1
 
+  # Important: Used to generate localization manually in case it's not generated automatically
+  # flutter pub run intl_utils:generate
+  intl_utils: ^2.8.2
+
 flutter:
+  uses-material-design: true
+
+  generate: true
 
 flutter_intl:
   enabled: true
