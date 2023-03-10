@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:platform_channels_challenge/di/index.dart';
+
 void main() {
+  DependencyInjector.injectModules();
   runApp(const MyApp());
 }
 
