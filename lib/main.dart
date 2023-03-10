@@ -2,6 +2,8 @@ import 'package:common/localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:platform_channels_challenge/di/index.dart';
+import 'package:platform_channels_challenge/presentation/home/home_page.dart';
+import 'package:platform_channels_challenge/styles/index.dart';
 
 void main() {
   DependencyInjector.injectModules();
@@ -17,6 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       supportedLocales: LocalizationHelper.supportedLocales,
       locale: LocalizationHelper.defaultLocale,
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         LocalizationHelper.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -24,10 +27,8 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       title: 'Movies App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const ColoredBox(color: Colors.red),
+      theme: darkTheme,
+      home: const HomePage(),
     );
   }
 }
