@@ -20,6 +20,12 @@ dependencies:
   # Caches images to reduce waste
   cached_network_image: ^3.2.3
 
+  # Used to make HTTP requests
+  dio: ^5.0.2
+
+  # Logging purposes
+  logger: ^1.2.2
+
   # Used to compare models for equality
   equatable: ^2.0.5
 
