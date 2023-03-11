@@ -19,5 +19,6 @@ ThemeData darkTheme = ThemeData(
   colorScheme: const ColorScheme.dark(
     primary: primaryColor,
     secondary: secondaryColor,
+    background: backgroundColor,
   ),
 );
