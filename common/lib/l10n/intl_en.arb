@@ -1,3 +1,9 @@
 {
-  "applicationName": "Movies App"
+  "applicationName": "Moviezta",
+
+
+  "popular": "Popular",
+  "newAndHot": "New & Hot",
+  "premiers": "Premiers",
+  "discover": "Discover"
 }
