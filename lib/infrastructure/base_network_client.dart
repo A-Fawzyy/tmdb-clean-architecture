@@ -1,0 +1,4 @@
+
+abstract class BaseNetworkClient {
+  Future<dynamic> get(String path, {Map<String, dynamic>? queryParameters});
+}
