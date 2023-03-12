@@ -57,6 +57,9 @@ dependencies:
   common:
     path: common
 
+  native_network_plugin:
+    path: native_network_plugin
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

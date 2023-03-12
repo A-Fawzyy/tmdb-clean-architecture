@@ -1,6 +1,12 @@
 import 'package:platform_channels_challenge/data/model/movie_model.dart';
+import 'package:platform_channels_challenge/infrastructure/index.dart';
 
 abstract class BaseMovieDataSource {
+
+
+  BaseMovieDataSource(this.client);
+
+  final BaseNetworkClient client;
 
   /// NetworkClient
   ///
