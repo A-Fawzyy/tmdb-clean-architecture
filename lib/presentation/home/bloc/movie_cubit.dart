@@ -12,13 +12,17 @@ class MovieCubit extends Cubit<MovieState> {
   MovieCubit(this.repo) : super(const MovieState());
 
   final BaseMovieRepo repo;
+  int _pageNumber = Constants.defaultPageNumber;
+  List<Movie> wholeList = [];
 
   /// Loads the paginated movie data for the given page number
-  void loadData([int pageNumber = Constants.defaultPageNumber]) {
+  void loadData() {
     emit(state.copyWith(status: RequestState.loading));
 
-    repo.getMovies(pageNumber).then((movies) {
-      emit(state.copyWith(movies: movies, status: RequestState.success));
+    repo.getMovies(_pageNumber).then((movies) {
+      wholeList.addAll(movies);
+      emit(state.copyWith(movies: wholeList, status: RequestState.success));
+      _pageNumber++;
     }).catchError((error) {
       emit(state.copyWith(status: RequestState.error));
     });

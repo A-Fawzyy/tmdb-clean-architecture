@@ -17,22 +17,23 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: context.w * 0.3125,
+      height: context.h * .333,
       child: Column(
         children: [
           SizedBox(
+            height: context.h * .28,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: CachedNetworkImage(
                 imageUrl: '${movie?.posterURLPath?.toImageURL}',
                 fit: BoxFit.cover,
                 progressIndicatorBuilder: (_, __, loadingProgress) =>
-                    CircularProgressIndicator(
-                  value: loadingProgress.totalSize != null
-                      ? loadingProgress.downloaded / loadingProgress.totalSize!
-                      : null,
-                  color: context.colorScheme.secondary,
-                ),
+                    SizedBox(
+                      height: context.h * .28,
+                      child: LinearProgressIndicator(
+                        color: context.colorScheme.secondary.withOpacity(0.5),
+                  ),
+                    ),
               ),
             ),
           ),

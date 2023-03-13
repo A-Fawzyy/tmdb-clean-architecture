@@ -101,15 +101,15 @@ class MovieModel extends Equatable {
   ///
   MovieModel.fromJson(Map<String, dynamic> map) :
       isAdult = map['adult'] as bool,
-      backdropURLPath = map['backdrop_path'] as String,
+      backdropURLPath = map['backdrop_path'] as String? ?? '',
       id = map['id'] as int,
-      originalLanguage = map['original_language'] as String,
-      originalTitle = map['original_title'] as String,
-      overview = map['overview'] as String,
-      popularityScore = map['popularity'] as double,
-      posterURLPath = map['poster_path'] as String,
-      releaseDate = map['release_date'] as String,
-      title = map['title'] as String,
+      originalLanguage = map['original_language'] as String?,
+      originalTitle = map['original_title'] as String? ?? '',
+      overview = map['overview'] as String? ?? '',
+      popularityScore = map['popularity'] * 1.0 as double,
+      posterURLPath = map['poster_path'] as String? ?? '',
+      releaseDate = map['release_date'] as String? ?? '',
+      title = map['title'] as String? ?? '',
       voteAverage = map['vote_average'] * 1.0 as double,
       voteCount = map['vote_count'] as int;
 
