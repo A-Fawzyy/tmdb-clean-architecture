@@ -11,4 +11,10 @@ abstract class BaseMovieRepo {
   /// [pageNumber] is the page number to retrieve between 1 and 1000,
   /// it's default value is 1
   Future<List<Movie>> getMovies(int pageNumber);
+
+  /// Retrieves popular movies returning a List of [Movie]
+  ///
+  /// [pageNumber] is the page number to retrieve between 1 and 1000,
+  /// it's default value is 1
+  Future<List<Movie>> getPopularMovies(int pageNumber);
 }

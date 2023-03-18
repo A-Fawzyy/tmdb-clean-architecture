@@ -29,4 +29,27 @@ class MovieDataSource extends BaseMovieDataSource {
         .map((movie) => MovieModel.fromJson(movie as Map<String, dynamic>))
         .toList();
   }
+
+
+  @override
+  Future<List<MovieModel>> getPopularMovies(int pageNumber) async {
+    final response = await client.get(
+      EndpointsConstants.popularMoviePath,
+      queryParameters: {
+        'page': pageNumber,
+        'api_key': Constants.apiKey,
+        // 'sort_by': 'popularity.desc',
+      },
+    );
+    final List movies;
+    if(response is String) {
+      final valueMap = json.decode(response as String);
+      movies =   valueMap['results'] as List;
+    } else {
+      movies = response.data['results'] as List;
+    }
+    return movies
+        .map((movie) => MovieModel.fromJson(movie as Map<String, dynamic>))
+        .toList();
+  }
 }

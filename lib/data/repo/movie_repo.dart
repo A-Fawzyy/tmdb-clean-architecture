@@ -10,4 +10,10 @@ class MovieRepo extends BaseMovieRepo {
     final movies = await dataSource.getMovies(pageNumber);
     return movies.map((movieModel) => movieModel.toDomain()).toList();
   }
+
+  @override
+  Future<List<Movie>> getPopularMovies(int pageNumber) async {
+    final movies = await dataSource.getPopularMovies(pageNumber);
+    return movies.map((movieModel) => movieModel.toDomain()).toList();
+  }
 }
