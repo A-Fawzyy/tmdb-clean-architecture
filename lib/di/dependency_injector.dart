@@ -12,36 +12,43 @@ import 'package:platform_channels_challenge/presentation/home/bloc/movie_cubit.d
 final locator = GetIt.instance;
 
 class DependencyInjector {
+
+  /// Use this to call api from the native network plugin
+  static const String networkPluginKey = 'network_plugin';
+  /// Use this to call api from the flutter dio client
+  static const String dioKey = 'dio';
+
+
   static void injectModules() {
     /// region MovieList
     locator.registerLazySingleton<BaseMovieDataSource>(
-      () => MovieDataSource(locator(instanceName: 'network_plugin')),
+          () => MovieDataSource(locator(instanceName: networkPluginKey)),
     );
     locator.registerLazySingleton<BaseMovieRepo>(
-      () => MovieRepo(locator()),
+          () => MovieRepo(locator()),
     );
     locator.registerFactory<MovieCubit>(
-      () => MovieCubit(locator()),
+          () => MovieCubit(locator()),
     );
 
     /// endregion
 
     locator.registerLazySingleton<Dio>(
-        () => Dio(),
+          () => Dio(),
     );
 
     locator.registerLazySingleton<BaseNetworkClient>(
-        () => DioClient(locator()),
+          () => DioClient(locator()),
       instanceName: 'dio',
     );
 
     locator.registerLazySingleton<BaseNetworkClient>(
-        () => PlatformChannelClient(locator()),
+          () => PlatformChannelClient(locator()),
       instanceName: 'network_plugin',
     );
 
     locator.registerLazySingleton<NativeNetworkPlugin>(
-        () => NativeNetworkPlugin(),
+          () => NativeNetworkPlugin(),
     );
   }
 }
