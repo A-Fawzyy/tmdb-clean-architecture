@@ -18,8 +18,13 @@ class MovieDataSource extends BaseMovieDataSource {
         'sort_by': 'popularity.desc',
       },
     );
-    final valueMap = json.decode(response as String);
-    final movies =   valueMap['results'] as List;
+    final List movies;
+    if(response is String) {
+      final valueMap = json.decode(response as String);
+      movies =   valueMap['results'] as List;
+    } else {
+      movies = response.data['results'] as List;
+    }
     return movies
         .map((movie) => MovieModel.fromJson(movie as Map<String, dynamic>))
         .toList();
