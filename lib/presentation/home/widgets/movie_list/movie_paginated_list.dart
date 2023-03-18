@@ -1,3 +1,4 @@
+import 'package:common/localization/localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:platform_channels_challenge/common/index.dart';
@@ -43,26 +44,56 @@ class MoviePaginatedList extends StatelessWidget {
             } else if (state.status == RequestState.success) {
               final movies = state.movies;
               return Expanded(
-                child: GridView.builder(
-                  key: const PageStorageKey<String>('movies_grid'),
-                  controller: scrollController,
-                  itemCount: movies?.length ?? 0,
-                  itemBuilder: (context, index) {
-                    return MovieCard(
-                      movie: movies?[index] ?? const Movie(),
-                    );
-                  },
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.7,
-                  ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: SwitchListTile.adaptive(
+                            title: Text(context.localization.sort),
+                            value: state.isSorted ?? false,
+                            onChanged: (value) =>
+                                context.read<MovieCubit>().toggleSorting(),
+                          ),
+                        ),
+                        Expanded(
+                          child: SwitchListTile.adaptive(
+                            title: Text(context.localization.filter),
+                            value: state.isFiltered ?? false,
+                            onChanged: (value) =>
+                                context.read<MovieCubit>().toggleFiltering(),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Expanded(
+                      child: GridView.builder(
+                        key: const PageStorageKey<String>('movies_grid'),
+                        controller: scrollController,
+                        itemCount: movies?.length ?? 0,
+                        itemBuilder: (context, index) {
+                          return MovieCard(
+                            movie: movies?[index] ?? const Movie(),
+                          );
+                        },
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: 0.64,
+                          mainAxisSpacing: 12,
+                          crossAxisSpacing: 12,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               );
             } else if (state.status == RequestState.error) {
               return Center(
                 child: Text(
                   'Error',
-                  style: context.textTheme?.bodySmall,
+                  style: context.textTheme.bodySmall,
                 ),
               );
             } else {
