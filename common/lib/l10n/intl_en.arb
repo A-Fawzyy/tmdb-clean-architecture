@@ -5,5 +5,7 @@
   "popular": "Popular",
   "newAndHot": "New & Hot",
   "premiers": "Premiers",
-  "discover": "Discover"
+  "discover": "Discover",
+  "sort": "Sort",
+  "filter": "Filter"
 }
