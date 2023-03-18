@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_channels_challenge/domain/entity/movie.dart';
+import 'package:platform_channels_challenge/presentation/home/widgets/add_bookmark_button.dart';
 import 'package:platform_channels_challenge/presentation/home/widgets/movie_stats_row.dart';
 import 'package:platform_channels_challenge/util/ext/string.dart';
 import 'package:platform_channels_challenge/util/index.dart';
@@ -29,6 +30,7 @@ class MovieCard extends StatelessWidget {
         child: Column(
           children: [
             Stack(
+              alignment: Alignment.bottomRight,
               children: [
                 SizedBox(
                   height: context.h * .28,
@@ -46,7 +48,8 @@ class MovieCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                )
+                ),
+                AddBookmarkButton(movie: movie),
               ],
             ),
             const SizedBox(height: 8),
