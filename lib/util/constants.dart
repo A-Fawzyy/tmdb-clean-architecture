@@ -13,3 +13,7 @@ class EndpointsConstants {
   static const discoverMoviePath = 'discover/movie';
   static const popularMoviePath = 'movie/popular';
 }
+
+class HiveConstants {
+  static const bookmarksBoxKey ='bookmarks-key';
+}
