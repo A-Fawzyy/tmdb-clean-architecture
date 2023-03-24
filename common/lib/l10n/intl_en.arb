@@ -7,5 +7,6 @@
   "premiers": "Premiers",
   "discover": "Discover",
   "sort": "Sort",
-  "filter": "Filter"
+  "filter": "Filter",
+  "errorLoadingImage": "Error Loading Image"
 }
