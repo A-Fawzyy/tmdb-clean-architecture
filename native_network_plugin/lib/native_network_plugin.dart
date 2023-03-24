@@ -4,10 +4,6 @@ import 'native_network_plugin_platform_interface.dart';
 
 class NativeNetworkPlugin {
 
-  NetworkPlugin() {
-    MethodChannelNativeNetworkPlugin.registerWith();
-  }
-
   Future<String?> get(String path,
           {Map<String, dynamic>? queryParameters}) async =>
       NativeNetworkPluginPlatform.instance
