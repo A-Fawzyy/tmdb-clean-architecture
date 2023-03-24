@@ -15,5 +15,5 @@ class EndpointsConstants {
 }
 
 class HiveConstants {
-  static const bookmarksBoxKey ='bookmarks-key';
+  static const favoriteBoxKey ='favorites-key';
 }

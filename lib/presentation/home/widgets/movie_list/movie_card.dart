@@ -1,10 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:common/localization/localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tmdb_clean_architecture/domain/entity/movie.dart';
-import 'package:tmdb_clean_architecture/presentation/home/bloc/movie_cubit.dart';
-import 'package:tmdb_clean_architecture/presentation/home/widgets/add_bookmark_button.dart';
+import 'package:tmdb_clean_architecture/presentation/home/widgets/add_favorite_button.dart';
 import 'package:tmdb_clean_architecture/presentation/home/widgets/movie_stats_row.dart';
 import 'package:tmdb_clean_architecture/util/ext/string.dart';
 import 'package:tmdb_clean_architecture/util/index.dart';
@@ -61,9 +59,8 @@ class MovieCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                AddBookmarkButton(
+                AddFavoriteButton(
                   movie: movie,
-                  cubit: context.read<MovieCubit>(),
                 ),
               ],
             ),

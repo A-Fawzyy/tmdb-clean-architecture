@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tmdb_clean_architecture/di/index.dart';
-import 'package:tmdb_clean_architecture/presentation/home/bloc/movie_cubit.dart';
+import 'package:tmdb_clean_architecture/presentation/home/bloc/favorite/favorites_cubit.dart';
+import 'package:tmdb_clean_architecture/presentation/home/bloc/movies/movie_cubit.dart';
 import 'package:tmdb_clean_architecture/presentation/home/home_content.dart';
 import 'package:tmdb_clean_architecture/presentation/home/widgets/movie_app_bar.dart';
 import 'package:tmdb_clean_architecture/util/ext/context.dart';
@@ -14,8 +15,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<MovieCubit>(
-      create: (context) => locator()..loadData(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<MovieListCubit>(
+          create: (context) => locator()..loadData(),
+        ),
+        BlocProvider<FavoritesCubit>(
+            create: (context) => locator(),
+        )
+      ],
       child: Scaffold(
         backgroundColor: context.colorScheme.background,
         drawer: const NavigationDrawer(

@@ -1,18 +1,21 @@
 import 'package:bloc/bloc.dart';
 import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
-import 'package:tmdb_clean_architecture/common/index.dart';
-import 'package:tmdb_clean_architecture/domain/base_repo/base_movie_repo.dart';
+import 'package:tmdb_clean_architecture/core/index.dart';
 import 'package:tmdb_clean_architecture/domain/entity/movie.dart';
+import 'package:tmdb_clean_architecture/domain/use_case/index.dart';
 import 'package:tmdb_clean_architecture/util/index.dart';
 
 part 'movie_state.dart';
 
 /// Cubit for the Movie Screen
-class MovieCubit extends Cubit<MovieState> {
-  MovieCubit(this.repo) : super(const MovieState());
+class MovieListCubit extends Cubit<MovieState> {
+  MovieListCubit(
+    this.getMoviesUC,
+  ) : super(const MovieState());
 
-  final BaseMovieRepo repo;
+  final GetMoviesUseCase getMoviesUC;
+
   int _pageNumber = Constants.defaultPageNumber;
   List<Movie> wholeList = [];
   List<Movie> updatedList = [];
@@ -21,7 +24,7 @@ class MovieCubit extends Cubit<MovieState> {
   void loadData() {
     emit(state.copyWith(status: RequestState.loading));
 
-    repo.getPopularMovies(_pageNumber).then((movies) {
+    getMoviesUC.execute(_pageNumber).then((movies) {
       wholeList.addAll(movies);
       _getUpdatedList(wholeList);
       emit(state.copyWith(movies: updatedList, status: RequestState.success));
@@ -69,20 +72,4 @@ class MovieCubit extends Cubit<MovieState> {
 
   List<Movie> _filterMovies(List<Movie> movies) =>
       movies.where((movie) => (movie.voteAverage ?? 0.0) >= 6.0).toList();
-
-  void toggleBookmark(Movie movie) {
-    if (isMovieBookmarked(movie)) {
-      repo.removeBookmark(movie);
-    } else {
-      repo.addBookmark(movie);
-    }
-  }
-
-  bool isMovieBookmarked(Movie? movie) {
-    if (movie == null) {
-      return false;
-    } else {
-      return repo.isMovieBookmarked(movie);
-    }
-  }
 }

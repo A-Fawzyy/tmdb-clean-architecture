@@ -14,7 +14,12 @@ abstract class BaseMovieDataSource {
   /// Retrieves movies returning a list of [MovieModel]
   ///
   /// [pageNumber] is the page number to retrieve between 1 and 1000,
-  /// it's default value is 1
+  /// it's default value is [Constants.defaultPageNumber]
   Future<List<MovieModel>> getMovies(int pageNumber);
+
+  /// Retrieves popular movies returning a list of [MovieModel]
+  ///
+  /// [pageNumber] is the page number to retrieve between 1 and 1000,
+  /// it's default value is [Constants.defaultPageNumber]
   Future<List<MovieModel>> getPopularMovies(int pageNumber);
 }

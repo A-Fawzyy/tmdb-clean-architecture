@@ -1,9 +1,9 @@
 import 'package:common/localization/localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tmdb_clean_architecture/common/index.dart';
+import 'package:tmdb_clean_architecture/core/index.dart';
 import 'package:tmdb_clean_architecture/domain/entity/movie.dart';
-import 'package:tmdb_clean_architecture/presentation/home/bloc/movie_cubit.dart';
+import 'package:tmdb_clean_architecture/presentation/home/bloc/movies/movie_cubit.dart';
 import 'package:tmdb_clean_architecture/presentation/home/widgets/movie_list/movie_card.dart';
 import 'package:tmdb_clean_architecture/util/index.dart';
 
@@ -31,7 +31,7 @@ class MoviePaginatedList extends StatelessWidget {
             style: context.textTheme.titleMedium,
           ),
         const SizedBox(height: 12),
-        BlocBuilder<MovieCubit, MovieState>(
+        BlocBuilder<MovieListCubit, MovieState>(
           builder: (context, state) {
             if (state.status == RequestState.loading) {
               return Expanded(
@@ -54,7 +54,7 @@ class MoviePaginatedList extends StatelessWidget {
                             title: Text(context.localization.sort),
                             value: state.isSorted ?? false,
                             onChanged: (value) =>
-                                context.read<MovieCubit>().toggleSorting(),
+                                context.read<MovieListCubit>().toggleSorting(),
                           ),
                         ),
                         Expanded(
@@ -62,7 +62,7 @@ class MoviePaginatedList extends StatelessWidget {
                             title: Text(context.localization.filter),
                             value: state.isFiltered ?? false,
                             onChanged: (value) =>
-                                context.read<MovieCubit>().toggleFiltering(),
+                                context.read<MovieListCubit>().toggleFiltering(),
                           ),
                         ),
                       ],
@@ -111,7 +111,7 @@ class MoviePaginatedList extends StatelessWidget {
         () {
           if (scrollController?.position.atEdge == true) {
             if (scrollController?.position.pixels != 0) {
-              context.read<MovieCubit>().loadData();
+              context.read<MovieListCubit>().loadData();
             }
           }
         },
