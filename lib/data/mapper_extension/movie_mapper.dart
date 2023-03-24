@@ -1,5 +1,5 @@
-import 'package:platform_channels_challenge/data/model/index.dart';
-import 'package:platform_channels_challenge/domain/entity/movie.dart';
+import 'package:tmdb_clean_architecture/data/model/index.dart';
+import 'package:tmdb_clean_architecture/domain/entity/movie.dart';
 
 /// Contains mapper functions for the model in the data layer
 ///

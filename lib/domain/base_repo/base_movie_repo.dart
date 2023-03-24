@@ -1,5 +1,5 @@
-import 'package:platform_channels_challenge/data/base_data_source/index.dart';
-import 'package:platform_channels_challenge/domain/entity/movie.dart';
+import 'package:tmdb_clean_architecture/data/base_data_source/index.dart';
+import 'package:tmdb_clean_architecture/domain/entity/movie.dart';
 
 abstract class BaseMovieRepo {
   BaseMovieRepo(this.movieDataSource, this.bookmarksLocalDataSource);

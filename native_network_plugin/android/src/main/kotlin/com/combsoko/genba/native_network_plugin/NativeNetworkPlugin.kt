@@ -1,8 +1,8 @@
 package com.combsoko.genba.native_network_plugin
 
 import android.content.Context
-import com.combsoko.genba.platform_channels_challenge.DefaultMethodChannelListener
-import com.combsoko.genba.platform_channels_challenge.util.MethodChannelNames
+import com.combsoko.genba.tmdb_clean_architecture.DefaultMethodChannelListener
+import com.combsoko.genba.tmdb_clean_architecture.util.MethodChannelNames
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall

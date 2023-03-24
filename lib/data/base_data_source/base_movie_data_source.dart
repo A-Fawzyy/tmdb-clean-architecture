@@ -1,5 +1,5 @@
-import 'package:platform_channels_challenge/data/model/movie_model.dart';
-import 'package:platform_channels_challenge/infrastructure/index.dart';
+import 'package:tmdb_clean_architecture/data/model/movie_model.dart';
+import 'package:tmdb_clean_architecture/infrastructure/index.dart';
 
 abstract class BaseMovieDataSource {
 

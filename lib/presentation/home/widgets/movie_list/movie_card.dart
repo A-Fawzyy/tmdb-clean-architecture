@@ -2,12 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:common/localization/localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:platform_channels_challenge/domain/entity/movie.dart';
-import 'package:platform_channels_challenge/presentation/home/bloc/movie_cubit.dart';
-import 'package:platform_channels_challenge/presentation/home/widgets/add_bookmark_button.dart';
-import 'package:platform_channels_challenge/presentation/home/widgets/movie_stats_row.dart';
-import 'package:platform_channels_challenge/util/ext/string.dart';
-import 'package:platform_channels_challenge/util/index.dart';
+import 'package:tmdb_clean_architecture/domain/entity/movie.dart';
+import 'package:tmdb_clean_architecture/presentation/home/bloc/movie_cubit.dart';
+import 'package:tmdb_clean_architecture/presentation/home/widgets/add_bookmark_button.dart';
+import 'package:tmdb_clean_architecture/presentation/home/widgets/movie_stats_row.dart';
+import 'package:tmdb_clean_architecture/util/ext/string.dart';
+import 'package:tmdb_clean_architecture/util/index.dart';
 
 /// class that builds a movie card widget
 /// showing the movie poster and title
@@ -49,20 +49,22 @@ class MovieCard extends StatelessWidget {
                           color: context.colorScheme.secondary.withOpacity(0.5),
                         ),
                       ),
-                        errorWidget: (_, __, ___) => SizedBox(
-                          height: context.h * .28,
-                          child: Center(
-                            child: Text(
-                              context.localization.errorLoadingImage,
-                              style: context.textTheme.bodyMedium,
-                            ),
+                      errorWidget: (_, __, ___) => SizedBox(
+                        height: context.h * .28,
+                        child: Center(
+                          child: Text(
+                            context.localization.errorLoadingImage,
+                            style: context.textTheme.bodyMedium,
                           ),
-                        )
+                        ),
+                      ),
                     ),
                   ),
                 ),
                 AddBookmarkButton(
-                    movie: movie, cubit: context.read<MovieCubit>()),
+                  movie: movie,
+                  cubit: context.read<MovieCubit>(),
+                ),
               ],
             ),
             const SizedBox(height: 8),

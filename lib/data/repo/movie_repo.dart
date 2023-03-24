@@ -1,6 +1,6 @@
-import 'package:platform_channels_challenge/data/mapper_extension/index.dart';
-import 'package:platform_channels_challenge/domain/base_repo/base_movie_repo.dart';
-import 'package:platform_channels_challenge/domain/entity/movie.dart';
+import 'package:tmdb_clean_architecture/data/mapper_extension/index.dart';
+import 'package:tmdb_clean_architecture/domain/base_repo/base_movie_repo.dart';
+import 'package:tmdb_clean_architecture/domain/entity/movie.dart';
 
 class MovieRepo extends BaseMovieRepo {
   MovieRepo(super.movieDataSource, super.bookmarksLocalDataSource);

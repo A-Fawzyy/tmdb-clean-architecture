@@ -1,6 +1,6 @@
 
-import 'package:platform_channels_challenge/data/base_data_source/base_bookmarks_local_data_source.dart';
-import 'package:platform_channels_challenge/data/model/index.dart';
+import 'package:tmdb_clean_architecture/data/base_data_source/base_bookmarks_local_data_source.dart';
+import 'package:tmdb_clean_architecture/data/model/index.dart';
 
 class BookmarksLocalDataSource extends BaseBookmarksLocalDataSource {
   BookmarksLocalDataSource(super.client);

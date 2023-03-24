@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.combsoko.genba.platform_channels_challenge">
+    package="com.combsoko.genba.tmdb_clean_architecture">
    <application
-        android:label="platform_channels_challenge"
+        android:label="tmdb_clean_architecture"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -1,4 +1,4 @@
-package com.combsoko.genba.platform_channels_challenge.util
+package com.combsoko.genba.tmdb_clean_architecture.util
 
 /**
  * contains all the method channel names

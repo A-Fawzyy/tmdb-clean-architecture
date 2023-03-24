@@ -1,4 +1,4 @@
-name: platform_channels_challenge
+name: tmdb_clean_architecture
 description: Flutter project where we use platform to call APIs natively and propagate the result back to the flutter code.
 
 publish_to: 'none'

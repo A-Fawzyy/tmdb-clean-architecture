@@ -1,6 +1,6 @@
-package com.combsoko.genba.platform_channels_challenge
+package com.combsoko.genba.tmdb_clean_architecture
 
-import com.combsoko.genba.platform_channels_challenge.util.MethodChannelNames
+import com.combsoko.genba.tmdb_clean_architecture.util.MethodChannelNames
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodChannel
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:platform_channels_challenge/domain/entity/movie.dart';
-import 'package:platform_channels_challenge/util/index.dart';
+import 'package:tmdb_clean_architecture/domain/entity/movie.dart';
+import 'package:tmdb_clean_architecture/util/index.dart';
 
 class MovieStatsRow extends StatelessWidget {
   const MovieStatsRow({

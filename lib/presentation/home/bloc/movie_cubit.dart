@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
-import 'package:platform_channels_challenge/common/index.dart';
-import 'package:platform_channels_challenge/domain/base_repo/base_movie_repo.dart';
-import 'package:platform_channels_challenge/domain/entity/movie.dart';
-import 'package:platform_channels_challenge/util/index.dart';
+import 'package:tmdb_clean_architecture/common/index.dart';
+import 'package:tmdb_clean_architecture/domain/base_repo/base_movie_repo.dart';
+import 'package:tmdb_clean_architecture/domain/entity/movie.dart';
+import 'package:tmdb_clean_architecture/util/index.dart';
 
 part 'movie_state.dart';
 
@@ -32,8 +32,12 @@ class MovieCubit extends Cubit<MovieState> {
   }
 
   void toggleSorting() {
-    emit(state.copyWith(
-        status: RequestState.loading, isSorted: !(state.isSorted ?? false)));
+    emit(
+      state.copyWith(
+        status: RequestState.loading,
+        isSorted: !(state.isSorted ?? false),
+      ),
+    );
     _getUpdatedList(wholeList);
     emit(state.copyWith(movies: updatedList, status: RequestState.success));
   }

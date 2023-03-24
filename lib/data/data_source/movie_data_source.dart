@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:platform_channels_challenge/data/base_data_source/base_movie_data_source.dart';
-import 'package:platform_channels_challenge/data/model/index.dart';
-import 'package:platform_channels_challenge/util/index.dart';
+import 'package:tmdb_clean_architecture/data/base_data_source/base_movie_data_source.dart';
+import 'package:tmdb_clean_architecture/data/model/index.dart';
+import 'package:tmdb_clean_architecture/util/index.dart';
 
 class MovieDataSource extends BaseMovieDataSource {
   MovieDataSource(super.client);
@@ -21,7 +21,7 @@ class MovieDataSource extends BaseMovieDataSource {
     final List movies;
     if(response is String) {
       final valueMap = json.decode(response as String);
-      movies =   valueMap['results'] as List;
+      movies = valueMap['results'] as List;
     } else {
       movies = response.data['results'] as List;
     }

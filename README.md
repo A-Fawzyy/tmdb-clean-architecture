@@ -1,4 +1,4 @@
-# platform_channels_challenge
+# tmdb_clean_architecture
 
 Flutter project where we use platform to call APIs natively and propagate the result back to the flutter code.
 

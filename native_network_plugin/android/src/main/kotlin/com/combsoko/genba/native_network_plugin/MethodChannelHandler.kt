@@ -1,8 +1,8 @@
 package com.combsoko.genba.native_network_plugin
 
-import com.combsoko.genba.platform_channels_challenge.MethodChannelListener
-import com.combsoko.genba.platform_channels_challenge.util.MethodChannelNames
-import com.combsoko.genba.platform_channels_challenge.util.MethodChannelParameterNames
+import com.combsoko.genba.tmdb_clean_architecture.MethodChannelListener
+import com.combsoko.genba.tmdb_clean_architecture.util.MethodChannelNames
+import com.combsoko.genba.tmdb_clean_architecture.util.MethodChannelParameterNames
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import kotlinx.coroutines.GlobalScope

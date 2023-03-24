@@ -1,4 +1,4 @@
-package com.combsoko.genba.platform_channels_challenge
+package com.combsoko.genba.tmdb_clean_architecture
 
 import android.util.Log
 import com.combsoko.genba.native_network_plugin.ApiInterface

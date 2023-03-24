@@ -1,6 +1,6 @@
 import 'package:common/localization.dart';
 import 'package:flutter/material.dart';
-import 'package:platform_channels_challenge/util/index.dart';
+import 'package:tmdb_clean_architecture/util/index.dart';
 
 class GenreTabBar extends StatelessWidget {
   const GenreTabBar({

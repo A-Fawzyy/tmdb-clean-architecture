@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:platform_channels_challenge/styles/colors.dart';
+import 'package:tmdb_clean_architecture/styles/colors.dart';
 
 TextTheme? get customTextTheme {
   final TextTheme base = Typography

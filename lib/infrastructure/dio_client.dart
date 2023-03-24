@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:platform_channels_challenge/infrastructure/base_network_client.dart';
-import 'package:platform_channels_challenge/util/constants.dart';
+import 'package:tmdb_clean_architecture/infrastructure/base_network_client.dart';
+import 'package:tmdb_clean_architecture/util/constants.dart';
 
 class DioClient extends BaseNetworkClient{
   final Dio _dio;

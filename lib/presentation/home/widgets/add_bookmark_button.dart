@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:platform_channels_challenge/data/model/index.dart';
-import 'package:platform_channels_challenge/domain/entity/movie.dart';
-import 'package:platform_channels_challenge/presentation/home/bloc/movie_cubit.dart';
-import 'package:platform_channels_challenge/util/index.dart';
+import 'package:tmdb_clean_architecture/data/model/index.dart';
+import 'package:tmdb_clean_architecture/domain/entity/movie.dart';
+import 'package:tmdb_clean_architecture/presentation/home/bloc/movie_cubit.dart';
+import 'package:tmdb_clean_architecture/util/index.dart';
 
 class AddBookmarkButton extends StatelessWidget {
   const AddBookmarkButton({

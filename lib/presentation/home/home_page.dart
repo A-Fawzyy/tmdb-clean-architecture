@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:platform_channels_challenge/di/index.dart';
-import 'package:platform_channels_challenge/presentation/home/bloc/movie_cubit.dart';
-import 'package:platform_channels_challenge/presentation/home/home_content.dart';
-import 'package:platform_channels_challenge/presentation/home/widgets/movie_app_bar.dart';
-import 'package:platform_channels_challenge/util/ext/context.dart';
+import 'package:tmdb_clean_architecture/di/index.dart';
+import 'package:tmdb_clean_architecture/presentation/home/bloc/movie_cubit.dart';
+import 'package:tmdb_clean_architecture/presentation/home/home_content.dart';
+import 'package:tmdb_clean_architecture/presentation/home/widgets/movie_app_bar.dart';
+import 'package:tmdb_clean_architecture/util/ext/context.dart';
 
 /// Home Container Widget which shows the drawer and
 /// bottom navigation and the current page

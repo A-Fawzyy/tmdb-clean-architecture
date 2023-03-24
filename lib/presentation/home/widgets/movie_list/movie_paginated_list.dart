@@ -1,11 +1,11 @@
 import 'package:common/localization/localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:platform_channels_challenge/common/index.dart';
-import 'package:platform_channels_challenge/domain/entity/movie.dart';
-import 'package:platform_channels_challenge/presentation/home/bloc/movie_cubit.dart';
-import 'package:platform_channels_challenge/presentation/home/widgets/movie_list/movie_card.dart';
-import 'package:platform_channels_challenge/util/index.dart';
+import 'package:tmdb_clean_architecture/common/index.dart';
+import 'package:tmdb_clean_architecture/domain/entity/movie.dart';
+import 'package:tmdb_clean_architecture/presentation/home/bloc/movie_cubit.dart';
+import 'package:tmdb_clean_architecture/presentation/home/widgets/movie_list/movie_card.dart';
+import 'package:tmdb_clean_architecture/util/index.dart';
 
 /// class that builds a horizontal list movie cards widget
 class MoviePaginatedList extends StatelessWidget {

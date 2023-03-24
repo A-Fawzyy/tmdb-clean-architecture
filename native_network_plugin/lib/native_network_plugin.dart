@@ -1,4 +1,3 @@
-import 'package:native_network_plugin/native_network_plugin_method_channel.dart';
 
 import 'native_network_plugin_platform_interface.dart';
 

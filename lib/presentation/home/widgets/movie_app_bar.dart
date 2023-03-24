@@ -1,6 +1,6 @@
 import 'package:common/localization.dart';
 import 'package:flutter/material.dart';
-import 'package:platform_channels_challenge/util/ext/index.dart';
+import 'package:tmdb_clean_architecture/util/ext/index.dart';
 
 class MovieAppBar extends StatelessWidget with PreferredSizeWidget {
   const MovieAppBar({

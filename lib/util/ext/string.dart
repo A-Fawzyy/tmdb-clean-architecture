@@ -1,5 +1,5 @@
 
-import 'package:platform_channels_challenge/util/index.dart';
+import 'package:tmdb_clean_architecture/util/index.dart';
 
 /// Extension for [String] class
 ///
