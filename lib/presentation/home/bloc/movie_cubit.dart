@@ -32,13 +32,19 @@ class MovieCubit extends Cubit<MovieState> {
   }
 
   void toggleSorting() {
-    emit(state.copyWith(status: RequestState.loading, isSorted: !(state.isSorted ?? false)));
+    emit(state.copyWith(
+        status: RequestState.loading, isSorted: !(state.isSorted ?? false)));
     _getUpdatedList(wholeList);
     emit(state.copyWith(movies: updatedList, status: RequestState.success));
   }
 
   void toggleFiltering() {
-    emit(state.copyWith(status: RequestState.loading, isFiltered: !(state.isFiltered ?? false)));
+    emit(
+      state.copyWith(
+        status: RequestState.loading,
+        isFiltered: !(state.isFiltered ?? false),
+      ),
+    );
     _getUpdatedList(wholeList);
     emit(state.copyWith(movies: updatedList, status: RequestState.success));
   }
@@ -49,7 +55,7 @@ class MovieCubit extends Cubit<MovieState> {
     if (state.isSorted == true) {
       updatedList = _sortMovies(updatedList);
     }
-    if(state.isFiltered == true) {
+    if (state.isFiltered == true) {
       updatedList = _filterMovies(updatedList);
     }
   }
@@ -59,4 +65,20 @@ class MovieCubit extends Cubit<MovieState> {
 
   List<Movie> _filterMovies(List<Movie> movies) =>
       movies.where((movie) => (movie.voteAverage ?? 0.0) >= 6.0).toList();
+
+  void toggleBookmark(Movie movie) {
+    if (isMovieBookmarked(movie)) {
+      repo.removeBookmark(movie);
+    } else {
+      repo.addBookmark(movie);
+    }
+  }
+
+  bool isMovieBookmarked(Movie? movie) {
+    if (movie == null) {
+      return false;
+    } else {
+      return repo.isMovieBookmarked(movie);
+    }
+  }
 }

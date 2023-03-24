@@ -15,17 +15,17 @@ class MovieStatsRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const Icon(Icons.how_to_vote_rounded),
+        const Icon(Icons.theaters),
         Text(
           '${movie?.voteCount}',
-          style: context.textTheme.bodyMedium,
+          style: context.textTheme.bodySmall,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        const Icon(Icons.sports_score_rounded),
+        const Icon(Icons.star),
         Text(
           '${movie?.voteAverage}',
-          style: context.textTheme.bodyMedium,
+          style: context.textTheme.bodySmall,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),

@@ -5,8 +5,11 @@ import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:native_network_plugin/native_network_plugin.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
+import 'package:platform_channels_challenge/data/base_data_source/base_bookmarks_local_data_source.dart';
 import 'package:platform_channels_challenge/data/base_data_source/base_movie_data_source.dart';
+import 'package:platform_channels_challenge/data/data_source/bookmarks_local_data_source.dart';
 import 'package:platform_channels_challenge/data/data_source/movie_data_source.dart';
+import 'package:platform_channels_challenge/data/model/index.dart';
 import 'package:platform_channels_challenge/data/repo/movie_repo.dart';
 import 'package:platform_channels_challenge/domain/base_repo/base_movie_repo.dart';
 import 'package:platform_channels_challenge/infrastructure/index.dart';
@@ -26,17 +29,22 @@ class DependencyInjector {
   static Future<void> _initHive() async {
     final Directory directory = await path_provider.getApplicationDocumentsDirectory();
     Hive.init(directory.path);
+    Hive.registerAdapter(MovieModelAdapter());
+    await Hive.openBox<MovieModel>(HiveConstants.bookmarksBoxKey);
   }
 
 
   static Future<void> injectModules() async {
     await _initHive();
     /// region MovieList
+    locator.registerFactory<BaseBookmarksLocalDataSource>(
+          () => BookmarksLocalDataSource(Hive.box(HiveConstants.bookmarksBoxKey)),
+    );
     locator.registerLazySingleton<BaseMovieDataSource>(
           () => MovieDataSource(locator(instanceName: networkPluginKey)),
     );
     locator.registerLazySingleton<BaseMovieRepo>(
-          () => MovieRepo(locator()),
+          () => MovieRepo(locator(), locator()),
     );
     locator.registerFactory<MovieCubit>(
           () => MovieCubit(locator()),

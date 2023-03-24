@@ -19,6 +19,7 @@ class MovieAppBar extends StatelessWidget with PreferredSizeWidget {
             context.localization.applicationName,
             style: context.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeights.semiBold,
+              fontSize: 20,
             ),
           ),
         ],

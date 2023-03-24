@@ -1,14 +1,20 @@
 import 'package:equatable/equatable.dart';
+import 'package:hive/hive.dart';
 
+part 'movie_model.g.dart';
+
+@HiveType(typeId: 0)
 class MovieModel extends Equatable {
+
+  /// The movie ID.
+  @HiveField(0)
+  final int? id;
+
   /// A boolean value that indicates whether the movie is an adult movie or not.
   final bool? isAdult;
 
   /// The backdrop image URL path.
   final String? backdropURLPath;
-
-  /// The movie ID.
-  final int? id;
 
   /// The original language of the movie.
   final String? originalLanguage;

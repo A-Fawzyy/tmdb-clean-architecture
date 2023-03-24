@@ -1,6 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:common/localization/localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:platform_channels_challenge/domain/entity/movie.dart';
+import 'package:platform_channels_challenge/presentation/home/bloc/movie_cubit.dart';
 import 'package:platform_channels_challenge/presentation/home/widgets/add_bookmark_button.dart';
 import 'package:platform_channels_challenge/presentation/home/widgets/movie_stats_row.dart';
 import 'package:platform_channels_challenge/util/ext/string.dart';
@@ -46,10 +49,20 @@ class MovieCard extends StatelessWidget {
                           color: context.colorScheme.secondary.withOpacity(0.5),
                         ),
                       ),
+                        errorWidget: (_, __, ___) => SizedBox(
+                          height: context.h * .28,
+                          child: Center(
+                            child: Text(
+                              context.localization.errorLoadingImage,
+                              style: context.textTheme.bodyMedium,
+                            ),
+                          ),
+                        )
                     ),
                   ),
                 ),
-                AddBookmarkButton(movie: movie),
+                AddBookmarkButton(
+                    movie: movie, cubit: context.read<MovieCubit>()),
               ],
             ),
             const SizedBox(height: 8),
